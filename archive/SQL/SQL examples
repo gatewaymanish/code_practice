@@ -1,0 +1,76 @@
+
+-- read commands
+
+-- select query simple
+select * from <table name>;
+select column1, column2 from <table name>;
+ex: select * from Employee;
+
+-- select query with where
+-- The WHERE clause is used to filter records based on specific conditions.
+ex: select * from <table name> where <tablename.column>=5000;
+SELECT first_name, last_name, email
+FROM customers
+WHERE city = 'Delhi';
+
+
+-- select query with having clause
+-- The HAVING clause is used to filter aggregated results
+SELECT department, COUNT(*) AS employee_count
+FROM employees
+GROUP BY department
+HAVING COUNT(*) > 10;
+
+-- select query with distinct
+--  The DISTINCT keyword is used to retrieve unique values from a column.
+SELECT DISTINCT city
+FROM customers;
+
+
+-- select query with LIMIT
+-- retrieve top 2 highest salary employee
+SELECT employee_name, salary
+FROM employees
+ORDER BY salary DESC
+LIMIT 2;
+
+-- retrieve highest salary employee
+SELECT employee_name, salary
+FROM employees
+ORDER BY salary DESC
+LIMIT 1;
+
+-- or like this
+SELECT employee_name, salary
+FROM employees
+WHERE salary = (SELECT MAX(salary) FROM employees);
+
+
+-- select query with SUBQUERY
+SELECT employee_name, salary
+FROM employees
+WHERE salary > (SELECT AVG(salary) FROM employees);
+
+-- select query with INNER JOIN or JOIN
+SELECT e.employee_name, e.salary, d.department_name
+FROM employees e
+JOIN departments d ON e.department_id = d.department_id;
+
+-- select query with LEFT JOIN
+SELECT e.employee_name, e.salary, d.department_name
+FROM employees e
+LEFT JOIN departments d ON e.department_id = d.department_id;
+
+
+-- select query with RIGHT JOIN
+SELECT e.employee_name, e.salary, d.department_name
+FROM employees e
+LEFT JOIN departments d ON e.department_id = d.department_id;
+
+-- select query with FULL OUTER JOIN
+SELECT e.employee_name, e.salary, d.department_name
+FROM employees e
+FULL JOIN departments d ON e.department_id = d.department_id;
+
+
+
