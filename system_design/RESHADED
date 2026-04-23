@@ -1,0 +1,68 @@
+﻿# RESHADED Framework
+
+The RESHADED framework is a standardized mental model to help you approach system design interviews systematically. It is especially useful for a Python backend developer moving into a Senior Security Engineer role because it prevents you from jumping straight into code or tools (like FastAPI or gRPC) before analyzing security and scaling constraints.
+
+## Acronym Breakdown
+
+Each letter in RESHADED represents a critical phase of the design process:
+
+### R — Requirements (Clarification)
+
+Start by defining the scope. For a security role, this includes not only functional requirements but also trust boundaries.
+
+- Functional: What does it do?
+  - Example: "Users can upload 10MB files."
+- Non-functional: Availability, latency, security.
+  - Example: "All data must be encrypted at rest; must handle 50k requests per second."
+
+### E — Estimation (Capacity Planning)
+
+Calculate the expected scale so you can choose the right architecture.
+
+- Storage: If you store 1 million photos daily, how many terabytes is that per year?
+- Throughput: Convert Daily Active Users (DAU) into Requests Per Second (RPS).
+
+### S — Schema (Data Modeling)
+
+Define the core entities and their relationships. This step is optional but often necessary.
+
+- Example: For a messaging app, define the `User`, `Message`, and `Thread` schemas.
+- Decide whether to use SQL for ACID compliance or NoSQL for horizontal scaling.
+
+### H — High-Level Design (HLD)
+
+Draw the big picture and show the main data flow.
+
+- Example flow: Client → Load Balancer → API Gateway → Services.
+
+### A — API Design
+
+Define the contract between frontend and backend.
+
+- Example: `POST /v1/messages` with a JSON payload.
+- For internal service communication, mention options like gRPC for speed and strong typing.
+
+### D — Detailed Design (Deep Dive)
+
+Show your expertise with implementation-level details. For a security-focused role, include:
+
+- Authentication/Authorization: How do you handle JWTs?
+- Rate limiting: How do you protect against DDoS or brute-force attacks?
+- Encryption: Where does TLS termination happen?
+
+### E — Evaluation (Trade-offs)
+
+Critique your own design by acknowledging the trade-offs.
+
+- "My design is highly available, but it might have eventual consistency issues."
+- "Using a global cache (Redis) speeds up reads but adds a single point of failure."
+
+### D — Distinctive Features
+
+Address unique constraints specific to the problem.
+
+- Example: For a payment system, discuss idempotency to prevent double charges.
+
+## Why RESHADED Helps
+
+RESHADED helps ensure you don't forget the security side of system design. Instead of just saying "I’ll use FastAPI," you explain why that choice fits the requirements and how you will secure the data flowing through those routes.

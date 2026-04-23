@@ -46,6 +46,8 @@ if animal:
     print(animal.speak())  # Output: Woof!
 
 
+
+
 ## another way
 from abc import ABC, abstractmethod
 

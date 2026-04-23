@@ -1,4 +1,5 @@
-
+# Program to arrange the signs of the numbers in an array such that all negative numbers come before the positive numbers.
+# for example arr = [1, 2, 3, -4, -1, 4] should be [-4, -1, 1, 2, 3, 4]
 
 
 def arrange_signs(arr):

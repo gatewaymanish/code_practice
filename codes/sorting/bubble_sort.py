@@ -1,6 +1,6 @@
 
 def bubble_sort(arr):
-    # Outer loop to iterate through the list n times
+    # Outer loop to iterate through the list n times in backwards order
     for n in range(len(arr) - 1, 0, -1):
 
         # Initialize swapped to track if any swaps occur
@@ -21,14 +21,11 @@ def bubble_sort(arr):
 
 
 # Sample list to be sorted
-arr = [6, 6, 2]
-print("Unsorted list is:")
-print(arr)
+arr = [6, 6, 2, 8, 5, 3, 1, 4]
+print("Unsorted list is: ", arr)
 
 bubble_sort(arr)
-
-print("Sorted list is:")
-print(arr)
+print("Sorted list is: ", arr)
 
 
 ###
@@ -44,4 +41,4 @@ for i in range(n-1):
     if not swapped:
         break
 
-print("Sorted array:", my_array)
+print("Sorted array 2:", my_array)
