@@ -9,22 +9,33 @@ Below, I'll break it down in detail, covering its core concepts, layers, benefit
 ### Core Principles of Clean Architecture
 Clean Architecture is built on several foundational principles from software engineering, particularly SOLID principles (Single Responsibility, Open-Closed, Liskov Substitution, Interface Segregation, Dependency Inversion). The key ideas include:
 
-1. **Separation of Concerns**: Each part of the system should have a single responsibility. This prevents mixing business logic with infrastructure details.
+1. **Separation of Concerns**: Each part of the system should have a single responsibility.
+This prevents mixing business logic with infrastructure details.
 
-2. **Dependency Inversion Principle (DIP)**: High-level modules (business logic) should not depend on low-level modules (e.g., databases or frameworks). Instead, both should depend on abstractions (interfaces). This allows you to swap out implementations without affecting the core logic.
+2. **Dependency Inversion Principle (DIP)**: High-level modules (business logic) should not
+depend on low-level modules (e.g., databases or frameworks). Instead, both should depend on
+abstractions (interfaces). This allows you to swap out implementations without affecting the core logic.
 
-3. **Independence from Frameworks**: The architecture should not be dictated by the tools or frameworks you're using. Frameworks are just tools that can be plugged in or replaced.
+3. **Independence from Frameworks**: The architecture should not be dictated by the tools or
+frameworks you're using. Frameworks are just tools that can be plugged in or replaced.
 
-4. **Testability**: By isolating business logic from external dependencies, the system becomes easier to unit test without mocking complex infrastructure.
+4. **Testability**: By isolating business logic from external dependencies, the system becomes
+easier to unit test without mocking complex infrastructure.
 
-5. **Database Independence**: The core business rules shouldn't care whether you're using SQL, NoSQL, or even a file system for persistence.
+5. **Database Independence**: The core business rules shouldn't care whether you're using SQL,
+NoSQL, or even a file system for persistence.
 
-6. **UI Independence**: The user interface (web, mobile, CLI) should be a plugin that can be swapped out without changing the business logic.
+6. **UI Independence**: The user interface (web, mobile, CLI) should be a plugin that can be
+swapped out without changing the business logic.
 
-7. **External Agency Independence**: The system should be resilient to changes in third-party services, APIs, or devices.
+7. **External Agency Independence**: The system should be resilient to changes in third-party
+services, APIs, or devices.
 
 ### The Layers of Clean Architecture
-Clean Architecture organizes code into concentric layers, often visualized as a series of circles (like an onion). Each layer has specific responsibilities, and dependencies flow inward—outer layers can depend on inner ones, but not vice versa. This creates a clear hierarchy where the innermost layers are the most stable and important.
+Clean Architecture organizes code into concentric layers, often visualized as a series of
+circles (like an onion). Each layer has specific responsibilities, and dependencies flow
+inward—outer layers can depend on inner ones, but not vice versa. This creates a clear
+hierarchy where the innermost layers are the most stable and important.
 
 Here's a typical layer structure (from outermost to innermost):
 
